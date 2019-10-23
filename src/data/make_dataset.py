@@ -1,30 +1,48 @@
-# -*- coding: utf-8 -*-
-import click
-import logging
-from pathlib import Path
-from dotenv import find_dotenv, load_dotenv
+import glob
+import pandas as pd
+from sklearn.model_selection import GroupShuffleSplit
 
 
-@click.command()
-@click.argument('input_filepath', type=click.Path(exists=True))
-@click.argument('output_filepath', type=click.Path())
-def main(input_filepath, output_filepath):
-    """ Runs data processing scripts to turn raw data from (../raw) into
-        cleaned data ready to be analyzed (saved in ../processed).
-    """
-    logger = logging.getLogger(__name__)
-    logger.info('making final data set from raw data')
+class TrainValTestSplitter:
+    def __init__(self, path_to_data):
+        """
+        Train-validation-test splitter, stores all the filenames
+        :param path_to_data: path to images
+        """
+        path_to_data = f'{path_to_data}'
+        self.data = pd.DataFrame()
+        self.data['path'] = glob.glob(path_to_data)
+        self._split_data()
 
+    def _split_stats(self, df):
+        print(f'Size: {len(df)}')
+        print(f'Percentage from original data: {len(df) / len(self.data)}')
 
-if __name__ == '__main__':
-    log_fmt = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
-    logging.basicConfig(level=logging.INFO, format=log_fmt)
+    def _split_data(self):
+        """
+        Creates data_train, data_val, data_test dataframes with filenames
+        """
+        # train | validate test split
+        splitter = GroupShuffleSplit(n_splits=1, test_size=0.3, random_state=42)
+        generator = splitter.split(self.data)
+        idx_train, idx_validate_test = next(generator)
 
-    # not used in this stub but often useful for finding various files
-    project_dir = Path(__file__).resolve().parents[2]
+        print('=================Train subset=================')
+        self.data_train = self.data.iloc[idx_train, :].reset_index(drop=True)
+        self._split_stats(self.data_train)
 
-    # find .env automagically by walking up directories until it's found, then
-    # load up the .env entries as environment variables
-    load_dotenv(find_dotenv())
+        # validate | test split
+        data_val_test = pd.concat([self.data[self.data.label == 1], self.data.iloc[self.data.iloc[idx_validate_test, :].index]])
+        splitter = GroupShuffleSplit(n_splits=1, test_size=0.50, random_state=42)
+        generator = splitter.split(self.data)
+        idx_val, idx_test = next(generator)
 
-    main()
+        print('=============Validation subset===============')
+        self.data_val = data_val_test.iloc[idx_val, :]
+        self.data_val = self.data_val.sample(len(self.data_val)).reset_index(drop=True)
+        self._split_stats(self.data_val)
+
+        print('=================Test subset=================')
+        self.data_test = data_val_test.iloc[idx_test, :]
+        self.data_test = self.data_test.sample(len(self.data_test)).reset_index(drop=True)
+        self._split_stats(self.data_test)
