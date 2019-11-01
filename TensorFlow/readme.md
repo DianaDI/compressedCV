@@ -81,3 +81,21 @@ cd into compressedCV/TensorFlow/models/research/object_detection/
 jupyter notebook
 ```
 In the browser, now open object_detection_tutorial ipython notebook and run all cells.
+
+If everything works, then follow the next steps:
+
+## Creating records file:
+After copying the images into test and train folder, follow the given steps
+https://tensorflow-object-detection-api-tutorial.readthedocs.io/en/latest/training.html#creating-tensorflow-records
+
+## Download the model zoo:
+SSD inception v2 coco [direct download link](http://download.tensorflow.org/models/object_detection/ssd_inception_v2_coco_2018_01_28.tar.gz)
+
+[All other models](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/detection_model_zoo.md#coco-trained-models-coco-models)
+Extract its contents into trainind_demo/pre-trained-model (do not create folder into folder)
+
+## Make changes to config file
+The config file is located into training folder. Please make absolute address changes.
+
+## Start the training
+python train.py --logtostderr --train_dir=training/ --pipeline_config_path=training/ssd_inception_v2_coco.config
