@@ -1,16 +1,19 @@
 from PIL import Image
+from pathlib import Path
 from glob import glob
 from os.path import basename
+from tqdm import tqdm
 import os
 
 
 class Compression:
-    def __init__(self, compress_level, optimize, resize=False, resize_params=(0, 0)):
+    def __init__(self, compress_level, optimize, log=True, resize=False, resize_params=(0, 0)):
         """
         Init compression params
         :param compress_level: compression % (0, 100)
         :param optimize:  boolean, true flag will do an extra pass on the image to find a way
         to reduce its size as much as possible.
+        :param log: boolean, prints log information
         :param resize: boolean, true if resize needed
         :param resize_params: specify if resize is true
         """
@@ -18,6 +21,7 @@ class Compression:
         self.optimize = optimize
         self.resize = resize
         self.resize_params = resize_params
+        self.log = log
 
     def compress(self, path, save_path):
         img = Image.open(path)
@@ -31,8 +35,19 @@ class Compression:
             os.makedirs(save_dir)
         except OSError:
             pass
-        for file in glob(data_dir + "/*"):
+
+        if self.log: print("INPUT DIR SIZE: " + self.get_dir_size(data_dir))
+
+        for file in tqdm(glob(data_dir + "/*")):
             self.compress(file, save_dir + "/" + basename(file))
+
+        if self.log: print("COMPRESSED DIR SIZE: " + self.get_dir_size(save_dir))
+
+    def get_dir_size(self, path):
+        root_directory = Path(path)
+        size = sum(f.stat().st_size for f in root_directory.glob('**/*'))
+        return str(size) + " bytes"
+
 
 # Example run
 # compressor = Compression(10, True)
