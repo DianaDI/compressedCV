@@ -7,7 +7,7 @@ import os
 
 
 class Compression:
-    def __init__(self, compress_level, optimize, log=True, resize=False, resize_params=(0, 0)):
+    def __init__(self, compress_level, optimize=True, log=True, resize=False, resize_params=(0, 0)):
         """
         Init compression params
         :param compress_level: compression % (0, 100)
@@ -50,5 +50,5 @@ class Compression:
 
 
 # Example run
-# compressor = Compression(10, True)
+# compressor = Compression(10)
 # compressor.compress_bulk("../../data/test data", "../../data/compressed")
