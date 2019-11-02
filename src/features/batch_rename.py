@@ -18,8 +18,8 @@ os.chdir(directory)
 count = 0
 for f in os.listdir(directory):
     if f.endswith('.xml'):
-        if len(f)==35:
-            os.rename(f,str(f[:25]+f[26:]))
+        if len(f) == 35:
+            os.rename(f, str(f[:25] + f[26:]))
             count += 1
 
 print(f'{count} files have been renamed.')

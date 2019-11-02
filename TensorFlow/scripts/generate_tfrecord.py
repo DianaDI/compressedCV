@@ -20,11 +20,12 @@ import pandas as pd
 # import tensorflow.compat.v1 as tf
 import tensorflow as tf
 import sys
+
 sys.path.append("../../models/research")
 
 from PIL import Image
-import dataset_util
-from collections import namedtuple, OrderedDict
+from TensorFlow.scripts import dataset_util
+from collections import namedtuple
 
 # tf.disable_v2_behavior()
 
@@ -34,27 +35,28 @@ flags.DEFINE_string('output_path', '', 'Path to output TFRecord')
 flags.DEFINE_string('img_path', '', 'Path to images')
 FLAGS = flags.FLAGS
 
+
 # TO-DO replace this with label map
 # for multiple labels add more else if statements
 def class_text_to_int(row_label):
     if row_label == 'Pedestrian':
-      return 1
+        return 1
     elif row_label == 'Bicycle':
-      return 2
+        return 2
     elif row_label == 'Motorbike':
-      return 3
+        return 3
     elif row_label == 'PassengerCar':
-      return 4
+        return 4
     elif row_label == 'Van':
-      return 5
+        return 5
     elif row_label == 'Truck':
-      return 6
+        return 6
     elif row_label == 'Bus':
-      return 7
+        return 7
     elif row_label == 'Bike_Bicycle_w/out_human':
-      return 8
+        return 8
     elif row_label == 'Ignored':
-      return 9  
+        return 9
     else:
         None
 
