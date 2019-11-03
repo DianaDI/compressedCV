@@ -30,15 +30,15 @@ def xml_to_csv(path):
     xml_list = []
     for xml_file in glob.glob(path + '/*.xml'):
         tree = AnnotationsParser().read(xml_file)
-        for object in tree:
+        for obj in tree:
             filename = xml_file.split(r'/')[-1][:-3] + 'bmp'
-            width = object['width']
-            height = object['height']
-            classe = object['name']
-            xmin = object['xmin']
-            ymin = object['ymin']
-            xmax = object['xmax']
-            ymax = object['ymax']
+            width = obj['width']
+            height = obj['height']
+            classe = obj['name']
+            xmin = obj['xmin']
+            ymin = obj['ymin']
+            xmax = obj['xmax']
+            ymax = obj['ymax']
             value = (filename, int(width), int(height), classe, int(xmin), int(ymin), int(xmax), int(ymax))
             xml_list.append(value)
     column_name = ['filename', 'width', 'height', 'class', 'xmin', 'ymin', 'xmax', 'ymax']
