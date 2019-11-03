@@ -11,6 +11,10 @@ class AnnotationsParser:
         """
         file = minidom.parse(path)
         objects = file.getElementsByTagName('object')
+
+        height = file.getElementsByTagName('height')
+        width = file.getElementsByTagName('width')
+
         all_objects_in_frame = list()
 
         for i in objects:
@@ -20,13 +24,16 @@ class AnnotationsParser:
             annotations['xmax'] = i.getElementsByTagName('bndbox')[0].childNodes[3].firstChild.data
             annotations['ymin'] = i.getElementsByTagName('bndbox')[0].childNodes[5].firstChild.data
             annotations['ymax'] = i.getElementsByTagName('bndbox')[0].childNodes[7].firstChild.data
+
+            annotations['height'] = height[0].firstChild.data
+            annotations['width'] = width[0].firstChild.data
+
             all_objects_in_frame.append(annotations)
         return all_objects_in_frame
 
     @staticmethod
     def get_file_name(image_name):
         return image_name.split('.')[0].comcat("xml")
-
 
 ## Example run
 # anns = AnnotationsParser().read("C02032-US_20181127_090756_00850.xml")

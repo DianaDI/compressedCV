@@ -1,0 +1,1 @@
+LABEL_MAP_PATH = f'../workspace/training_demo/annotations/label_map.pbtxt'

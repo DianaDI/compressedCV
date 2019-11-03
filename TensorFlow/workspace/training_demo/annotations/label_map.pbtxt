@@ -1,0 +1,44 @@
+item {
+    id: 1
+    name: 'Pedestrian'
+}
+
+item {
+    id: 2
+    name: 'Bicycle'
+}
+
+item {
+    id: 3
+    name: 'Motorbike'
+}
+
+item {
+    id: 4
+    name: 'PassengerCar'
+}
+
+item {
+    id: 5
+    name: 'Van'
+}
+
+item {
+    id: 6
+    name: 'Truck'
+}
+
+item {
+    id: 7
+    name: 'Bus'
+}
+
+item {
+    id: 8
+    name: 'Bike_Bicycle_w/out_human'
+}
+
+item {
+    id: 9
+    name: 'Ignored'
+}
