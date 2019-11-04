@@ -4,10 +4,10 @@
 Usage:
 
 # Create train data:
-python generate_tfrecord.py --csv_input=/home/s/singla/Documents/TensorFlow/workspace/training_demo/annotations/train_labels.csv --img_path=/home/s/singla/Documents/TensorFlow/workspace/training_demo/images/train  --output_path=/home/s/singla/Documents/TensorFlow/workspace/training_demo/annotations/train.record
+python generate_tfrecord.py --csv_input=../workspace/training_demo/annotations/train_labels.csv --img_path=/home/s/singla/Documents/TensorFlow/workspace/training_demo/images/train  --output_path=../workspace/training_demo/annotations/train.record
 
 # Create test data:
-python generate_tfrecord.py --csv_input=/home/s/singla/Documents/TensorFlow/workspace/training_demo/annotations/test_labels.csv --img_path=/home/s/singla/Documents/TensorFlow/workspace/training_demo/images/test  --output_path=/home/s/singla/Documents/TensorFlow/workspace/training_demo/annotations/test.record
+python generate_tfrecord.py --csv_input=../workspace/training_demo/annotations/test_labels.csv --img_path=/home/s/singla/Documents/TensorFlow/workspace/training_demo/images/test  --output_path=../workspace/training_demo/annotations/test.record
 """
 
 from __future__ import division
@@ -90,17 +90,23 @@ def create_tf_example(group, path):
     return tf_example
 
 
-def main(_):
-    writer = tf.python_io.TFRecordWriter(FLAGS.output_path)
-    path = os.path.join(os.getcwd(), FLAGS.img_path)
-    examples = pd.read_csv(FLAGS.csv_input)
+def main(csv_input=None, img_path=None, output_path=None):
+    if csv_input == None:
+        csv_input = FLAGS.csv_input
+    if img_path == None:
+        img_path = FLAGS.img_path
+    if output_path == None:
+        output_path = FLAGS.output_path
+    writer = tf.python_io.TFRecordWriter(output_path)
+    path = os.path.join(os.getcwd(), img_path)
+    examples = pd.read_csv(csv_input)
     grouped = split(examples, 'filename')
     for group in grouped:
         tf_example = create_tf_example(group, path)
         writer.write(tf_example.SerializeToString())
 
     writer.close()
-    output_path = os.path.join(os.getcwd(), FLAGS.output_path)
+    output_path = os.path.join(os.getcwd(), output_path)
     print('Successfully created the TFRecords: {}'.format(output_path))
 
 
