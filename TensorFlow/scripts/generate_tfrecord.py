@@ -19,6 +19,7 @@ import io
 import pandas as pd
 import tensorflow as tf
 import sys
+from tqdm import tqdm
 
 sys.path.append("../../models/research")
 
@@ -101,7 +102,7 @@ def main(csv_input=None, img_path=None, output_path=None):
     path = os.path.join(os.getcwd(), img_path)
     examples = pd.read_csv(csv_input)
     grouped = split(examples, 'filename')
-    for group in grouped:
+    for group in tqdm(grouped):
         tf_example = create_tf_example(group, path)
         writer.write(tf_example.SerializeToString())
 

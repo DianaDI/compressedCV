@@ -1,16 +1,17 @@
 """
 Usage:
 # Create train data:
-python xml_to_csv.py -i /home/s/singla/Documents/TensorFlow/workspace/training_demo/images/train -o /home/s/singla/Documents/TensorFlow/workspace/training_demo/annotations/train_labels.csv
+python xml_to_csv.py -i ../../data/harman_360h/train -o ../workspace/training_demo/annotations/train_labels.csv
 
 # Create test data:
-python xml_to_csv.py -i /home/s/singla/Documents/TensorFlow/workspace/training_demo/images/test -o /home/s/singla/Documents/TensorFlow/workspace/training_demo/annotations/test_labels.csv
+python xml_to_csv.py -i ../../data/harman_360h/test -o ../workspace/training_demo/annotations/test_labels.csv
 """
 
 import os
 import glob
 import pandas as pd
 import argparse
+from tqdm import tqdm
 from src.data.annotation_parser import AnnotationsParser
 
 
@@ -27,11 +28,12 @@ def xml_to_csv(path):
         The produced dataframe
     """
 
+    img_format = "jpg"
     xml_list = []
-    for xml_file in glob.glob(path + '/*.xml'):
+    for xml_file in tqdm(glob.glob(path + '/*.xml')):
         tree = AnnotationsParser().read(xml_file)
         for obj in tree:
-            filename = xml_file.split(r'/')[-1][:-3] + 'bmp'
+            filename = xml_file.split(r'/')[-1].split('\\')[-1][:-len(img_format)] + img_format
             width = obj['width']
             height = obj['height']
             classe = obj['name']

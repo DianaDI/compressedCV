@@ -5,6 +5,7 @@ from src.data.make_dataset import TrainValTestSplitter
 
 
 def move_files(files, dest_folder):
+    print("----Moving to ", dest_folder, " started----")
     for f in tqdm(files):
         shutil.move(f, dest_folder)
 
