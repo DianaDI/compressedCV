@@ -22,6 +22,7 @@ class Compression:
         self.resize = resize
         self.resize_params = resize_params
         self.log = log
+        self.img_format = ".bmp"
 
     def compress(self, path, save_path):
         img = Image.open(path)
@@ -38,7 +39,7 @@ class Compression:
 
         if self.log: print("INPUT DIR SIZE: " + self.get_dir_size(data_dir))
 
-        for file in tqdm(glob(data_dir + "/*")):
+        for file in tqdm(glob(data_dir + "/*" + self.img_format)):
             self.compress(file, save_dir + "/" + basename(file))
 
         if self.log: print("COMPRESSED DIR SIZE: " + self.get_dir_size(save_dir))

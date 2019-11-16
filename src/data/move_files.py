@@ -10,6 +10,12 @@ def move_files(files, dest_folder):
         shutil.move(f, dest_folder)
 
 
+def copy_files(files, dest_folder):
+    print("---Copying to ", dest_folder, " started----")
+    for f in tqdm(glob(files)):
+        shutil.copy(f, dest_folder)
+
+
 def separate_train_test(data, train_data, test_data):
     try:
         os.makedirs(train_data)
@@ -23,9 +29,11 @@ def separate_train_test(data, train_data, test_data):
     data_test = splitter.data_test
 
     # Separate into train and test folders
+    print("TRAIN DATA IS BEING PROCESSED...")
     move_files(data_train['path'], train_data)
     move_files(data_train['labels'], train_data)
 
+    print("TEST DATA IS BEING PROCESSED...")
     move_files(data_test['path'], test_data)
     move_files(data_test['labels'], test_data)
 
