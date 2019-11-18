@@ -11,7 +11,7 @@ Logic:
 """
 import os
 
-directory = r'/home/s/singla/Documents/TensorFlow/workspace/training_demo/images/train/'
+directory = r'/home/ubuntu/data/annotations'
 
 os.chdir(directory)
 
