@@ -4,13 +4,15 @@ from os.path import abspath, dirname
 ROOT_PATH = dirname(dirname(abspath(__file__)))
 
 # Annotations
-LABELS_PATH = f'home/ubuntu/data/annotations'
+LABELS_PATH = f'/home/ubuntu/data/annotations'
+FILTERED_ANNOTATIONS = f'/home/ubuntu/data/annotations_filtered'
 LABEL_MAP_PATH = ROOT_PATH + f'/TensorFlow/workspace/training_demo/annotations/label_map.pbtxt'
 
 # Original data
 DATA_PATH = f'/home/ubuntu/data/data_original/images'
-TRAIN_DATA = f'/home/ubuntu/data/data_original/images/train'
-TEST_DATA = f'/home/ubuntu/data/data_original/images/test'
+DATA_FILTERED = f'/home/ubuntu/data/data_original/images_filtered'
+TRAIN_DATA = f'/home/ubuntu/data/data_original/train'
+TEST_DATA = f'/home/ubuntu/data/data_original/test'
 
 # CSV PATH
 TRAIN_CSV = DATA_PATH + f'/csv/train_labels.csv'

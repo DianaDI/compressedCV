@@ -12,7 +12,7 @@ def move_files(files, dest_folder):
 
 def copy_files(files, dest_folder):
     print("---Copying to ", dest_folder, " started----")
-    for f in tqdm(glob(files)):
+    for f in tqdm(files):
         shutil.copy(f, dest_folder)
 
 
