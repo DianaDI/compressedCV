@@ -4,12 +4,13 @@ import os
 import shutil
 from os.path import basename, isfile
 from src.data.move_files import copy_files
-from src import LABELS_PATH, DATA_PATH, FILTERED_ANNOTATIONS, DATA_FILTERED
+from src import LABELS_PATH, DATA_PATH, LABELS_FILTERED, DATA_FILTERED
 
 
 def filter_out_odd_annotations(annotation_dir, data_dir, output_dir_xml, output_dir_data):
     try:
         os.makedirs(output_dir_xml)
+        os.makedirs(output_dir_data)
     except OSError:
         pass
     cnt = 0
@@ -26,4 +27,4 @@ def filter_out_odd_annotations(annotation_dir, data_dir, output_dir_xml, output_
 
 
 if __name__ == '__main__':
-    filter_out_odd_annotations(LABELS_PATH, DATA_PATH, FILTERED_ANNOTATIONS, DATA_FILTERED)
+    filter_out_odd_annotations(LABELS_PATH, DATA_PATH, LABELS_FILTERED, DATA_FILTERED)

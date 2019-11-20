@@ -14,8 +14,8 @@ class TrainValTestSplitter:
         path_to_data = f'{path_to_data + "/*"}'
         path_to_labels = f'{path_to_labels + "/*"}'
         self.data = pd.DataFrame()
-        self.data['path'] = glob.glob(path_to_data)
-        self.data['labels'] = glob.glob(path_to_labels)
+        self.data['path'] = sorted(glob.glob(path_to_data))
+        self.data['labels'] = sorted(glob.glob(path_to_labels))
         self.test_size = test_size
         self.random_state = 42
         self._split_data()
