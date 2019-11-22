@@ -92,7 +92,7 @@ https://tensorflow-object-detection-api-tutorial.readthedocs.io/en/latest/traini
 SSD inception v2 coco [direct download link](http://download.tensorflow.org/models/object_detection/ssd_inception_v2_coco_2018_01_28.tar.gz)
 
 [All other models](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/detection_model_zoo.md#coco-trained-models-coco-models)
-Extract its contents into trainind_demo/pre-trained-model (do not create folder into folder)
+Extract its contents into training_demo/pre-trained-model (do not create folder into folder)
 
 ## Make changes to config file
 The config file is located into training folder. Please make absolute address changes.
