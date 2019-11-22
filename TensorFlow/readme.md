@@ -69,8 +69,8 @@ Then, from within TensorFlow/models/research/
 ```bash
 ../../../protobuf/bin/protoc object_detection/protos/*.proto --python_out=.
 
-export PYTHONPATH=$PYTHONPATH:/user/ubuntu/compressedCV/TensorFlow/models/research/object_detection
-export PYTHONPATH=$PYTHONPATH:/user/ubuntu/compressedCV/TensorFlow/models/research:/user/ubuntu/compressedCV/TensorFlow/models/research/slim
+export PYTHONPATH=$PYTHONPATH:/home/hitansh/compressedCV/TensorFlow/models/research/object_detection
+export PYTHONPATH=$PYTHONPATH:/home/hitansh/compressedCV/TensorFlow/models/research:/home/hitansh/compressedCV/TensorFlow/models/research/slim
 ```
 
 
@@ -98,7 +98,9 @@ Extract its contents into trainind_demo/pre-trained-model (do not create folder 
 The config file is located into training folder. Please make absolute address changes.
 
 ## Start the training
+```bash
 python train.py --logtostderr --train_dir=training/ --pipeline_config_path=training/ssd_inception_v2_coco.config
+```
 
 ## Start the tensorboard
 From the training_demo folder:
@@ -107,4 +109,6 @@ tensorboard --logdir=training\
 ```
 
 ## Export inference graph
+```bash
 python export_inference_graph.py --input_type image_tensor --pipeline_config_path training/ssd_inception_v2_coco.config --trained_checkpoint_prefix training/model.ckpt-532 --output_directory trained-inference-graphs/output_inference_graph_v1.pb
+```
