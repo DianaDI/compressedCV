@@ -49,6 +49,7 @@ def xml_to_csv(path):
 
 
 def main(input_dir=None, output_file=None):
+    print(f'XML2CSV HAS STARTED. PROCESSING {input_dir}')
     if input_dir == None:
         # Initiate argument parser
         parser = argparse.ArgumentParser(
@@ -69,7 +70,6 @@ def main(input_dir=None, output_file=None):
             input_dir = os.getcwd()
         if (output_file is None):
             output_file = input_dir + "/labels.csv"
-
 
     assert (os.path.isdir(input_dir))
 

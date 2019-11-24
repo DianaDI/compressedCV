@@ -37,7 +37,9 @@ class Compression:
         except OSError:
             pass
 
-        if self.log: print("INPUT DIR SIZE: " + self.get_dir_size(data_dir))
+        if self.log:
+            print(f'COMPRESSION OF {data_dir} HAS STARTED')
+            print(f'INPUT DIR SIZE: {self.get_dir_size(data_dir)}')
 
         for file in tqdm(glob(data_dir + "/*" + self.img_format)):
             self.compress(file, save_dir + "/" + basename(file))
@@ -48,8 +50,3 @@ class Compression:
         root_directory = Path(path)
         size = sum(f.stat().st_size for f in root_directory.glob('**/*'))
         return str(size) + " bytes"
-
-
-# Example run
-# compressor = Compression(10)
-# compressor.compress_bulk("../../data/test data", "../../data/compressed")

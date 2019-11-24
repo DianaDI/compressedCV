@@ -96,6 +96,7 @@ def create_tf_example(group, path):
 
 
 def main(csv_input=None, img_path=None, output_path=None):
+    print(f'TF_RECORDS GENERATION HAS STARTED. PROCESSING {csv_input}, {img_path}. SAVING TO {output_path}')
     if csv_input == None:
         csv_input = FLAGS.csv_input
     if img_path == None:
