@@ -39,7 +39,7 @@ cd TensorFlow
 
 Download models 1.12.0 folder
 ```bash
-git clone https://github.com/tensorflow/models/tree/r1.12.0
+wget https://github.com/tensorflow/models/tree/r1.12.0
 ```
 (Rename the folder as models (lowercase all))
 
@@ -93,10 +93,23 @@ https://tensorflow-object-detection-api-tutorial.readthedocs.io/en/latest/traini
 SSD inception v2 coco [direct download link](http://download.tensorflow.org/models/object_detection/ssd_inception_v2_coco_2018_01_28.tar.gz)
 
 [All other models](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/detection_model_zoo.md#coco-trained-models-coco-models)
-Extract its contents into trainind_demo/pre-trained-model (do not create folder into folder)
+Extract its contents into training_demo/pre-trained-model (do not create folder into folder)
 
 ## Make changes to config file
 The config file is located into training folder. Please make absolute address changes.
 
 ## Start the training
+```bash
 python train.py --logtostderr --train_dir=training/ --pipeline_config_path=training/ssd_inception_v2_coco.config
+```
+
+## Start the tensorboard
+From the training_demo folder:
+```bash
+tensorboard --logdir=training\
+```
+
+## Export inference graph
+```bash
+python export_inference_graph.py --input_type image_tensor --pipeline_config_path training/ssd_inception_v2_coco.config --trained_checkpoint_prefix training/model.ckpt-532 --output_directory trained-inference-graphs/output_inference_graph_v1.pb
+```
