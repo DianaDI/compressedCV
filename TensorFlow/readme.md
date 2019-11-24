@@ -67,10 +67,11 @@ https://github.com/protocolbuffers/protobuf/releases
 unzip all of its contents into protobuf folder
 Then, from within TensorFlow/models/research/
 ```bash
-../../../protobuf/bin/protoc object_detection/protos/*.proto --python_out=.
+../../protobuf/bin/protoc object_detection/protos/*.proto --python_out=.
 
-export PYTHONPATH=$PYTHONPATH:/user/ubuntu/compressedCV/TensorFlow/models/research/object_detection
-export PYTHONPATH=$PYTHONPATH:/user/ubuntu/compressedCV/TensorFlow/models/research:/user/ubuntu/compressedCV/TensorFlow/models/research/slim
+export PYTHONPATH=$PYTHONPATH:/home/[user_name]/TensorFlow/models/research
+export PYTHONPATH=$PYTHONPATH:/home/[user_name]/TensorFlow/models/research:/home/[user_name]/TensorFlow/models/research/slim
+
 ```
 
 

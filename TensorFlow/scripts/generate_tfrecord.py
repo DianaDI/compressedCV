@@ -21,11 +21,11 @@ import tensorflow as tf
 import sys
 from tqdm import tqdm
 
-sys.path.append("../../models/research")
+sys.path.append("../../../TensorFlow/models/research")
 
 from PIL import Image
 from TensorFlow.scripts import dataset_util
-from TensorFlow.models.research.object_detection.utils import label_map_util
+from object_detection.utils import label_map_util
 from collections import namedtuple
 from src import LABEL_MAP_PATH
 
