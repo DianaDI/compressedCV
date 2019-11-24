@@ -46,11 +46,11 @@ import json
 import os
 import tensorflow as tf
 
-from TensorFlow.models.research.object_detection.builders import dataset_builder
-from TensorFlow.models.research.object_detection.builders import graph_rewriter_builder
-from TensorFlow.models.research.object_detection.builders import model_builder
-from TensorFlow.models.research.object_detection.legacy import trainer
-from TensorFlow.models.research.object_detection.utils import config_util
+from object_detection.builders import dataset_builder
+from object_detection.builders import graph_rewriter_builder
+from object_detection.builders import model_builder
+from object_detection.legacy import trainer
+from object_detection.utils import config_util
 
 tf.logging.set_verbosity(tf.logging.INFO)
 
