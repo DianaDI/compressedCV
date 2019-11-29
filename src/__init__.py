@@ -1,4 +1,3 @@
-import os
 from os.path import abspath, dirname
 
 ROOT_PATH = dirname(dirname(abspath(__file__)))
@@ -15,8 +14,8 @@ TRAIN_DATA = f'/home/ubuntu/data/data_original/train'
 TEST_DATA = f'/home/ubuntu/data/data_original/test'
 
 # CSV PATH
-TRAIN_CSV = f'/home/ubuntu/data/data_original/csv/train_labels.csv'
-TEST_CSV = f'/home/ubuntu/data/data_original/csv/test_labels.csv'
+OUT_TRAIN_CSV = f'/home/ubuntu/data/data_original/csv/train_labels.csv'
+OUT_TEST_CSV = f'/home/ubuntu/data/data_original/csv/test_labels.csv'
 
 # Compression
 COMPRESSION_LVL = 0
@@ -25,5 +24,5 @@ COMPRESSED_DATA_PATH = f'/home/ubuntu/data/images_' + str(COMPRESSION_LVL)
 COMP_TRAIN_DATA_PATH = f'/home/ubuntu/data/images_' + str(COMPRESSION_LVL) + f'/train'
 COMP_TEST_DATA_PATH = f'/home/ubuntu/data/images_' + str(COMPRESSION_LVL) + f'/test'
 
-RECORDS_OUTPUT_TRAIN_PATH = f'/home/ubuntu/data/data_original/records/train_' + str(COMPRESSION_LVL) + '.record'
-RECORDS_OUTPUT_TEST_PATH = f'/home/ubuntu/data/data_original/records/test_' + str(COMPRESSION_LVL) + '.record'
+OUT_RECORDS_TRAIN_PATH = f'/home/ubuntu/data/data_original/records/train_' + str(COMPRESSION_LVL) + '.record'
+OUT_RECORDS_TEST_PATH = f'/home/ubuntu/data/data_original/records/test_' + str(COMPRESSION_LVL) + '.record'

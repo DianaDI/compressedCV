@@ -3,8 +3,8 @@ from TensorFlow.scripts import generate_tfrecord, xml_to_csv
 from src.features.compress import Compression
 from src import DATA_FILTERED, COMPRESSED_DATA_PATH, \
     COMP_TEST_DATA_PATH, COMP_TRAIN_DATA_PATH, \
-    RECORDS_OUTPUT_TEST_PATH, RECORDS_OUTPUT_TRAIN_PATH, \
-    COMPRESSION_LVL, TRAIN_DATA, TEST_DATA, LABELS_FILTERED, TRAIN_CSV, TEST_CSV
+    OUT_RECORDS_TEST_PATH, OUT_RECORDS_TRAIN_PATH, \
+    COMPRESSION_LVL, TRAIN_DATA, TEST_DATA, LABELS_FILTERED, OUT_TRAIN_CSV, OUT_TEST_CSV
 
 # Configure parameters
 SPLIT = False
@@ -18,8 +18,8 @@ if SPLIT:
 
 # XML TO CSV - done only once for split
 if XML2CSV:
-    xml_to_csv.main(TRAIN_DATA, TRAIN_CSV)
-    xml_to_csv.main(TEST_DATA, TEST_CSV)
+    xml_to_csv.main(TRAIN_DATA, OUT_TRAIN_CSV)
+    xml_to_csv.main(TEST_DATA, OUT_TEST_CSV)
 
 if COMPRESS:
     compressor = Compression(COMPRESSION_LVL)
@@ -32,5 +32,5 @@ if COMPRESS:
 
 # GENERATE RECORDS
 if TFRECORDS:
-    generate_tfrecord.main(TRAIN_CSV, TRAIN_DATA, RECORDS_OUTPUT_TRAIN_PATH)
-    generate_tfrecord.main(TEST_CSV, TEST_DATA, RECORDS_OUTPUT_TEST_PATH)
+    generate_tfrecord.main(OUT_TRAIN_CSV, TRAIN_DATA, OUT_RECORDS_TRAIN_PATH)
+    generate_tfrecord.main(OUT_TEST_CSV, TEST_DATA, OUT_RECORDS_TEST_PATH)
