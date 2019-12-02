@@ -1,16 +1,17 @@
 """
 Usage:
 # Create train data:
-python xml_to_csv.py -i /home/s/singla/Documents/TensorFlow/workspace/training_demo/images/train -o /home/s/singla/Documents/TensorFlow/workspace/training_demo/annotations/train_labels.csv
+python xml_to_csv.py -i ../../data/harman_360h/train -o ../workspace/training_demo/annotations/train_labels.csv
 
 # Create test data:
-python xml_to_csv.py -i /home/s/singla/Documents/TensorFlow/workspace/training_demo/images/test -o /home/s/singla/Documents/TensorFlow/workspace/training_demo/annotations/test_labels.csv
+python xml_to_csv.py -i ../../data/harman_360h/test -o ../workspace/training_demo/annotations/test_labels.csv
 """
 
 import os
 import glob
 import pandas as pd
 import argparse
+from tqdm import tqdm
 from src.data.annotation_parser import AnnotationsParser
 
 
@@ -27,11 +28,12 @@ def xml_to_csv(path):
         The produced dataframe
     """
 
+    img_format = "bmp"
     xml_list = []
-    for xml_file in glob.glob(path + '/*.xml'):
+    for xml_file in tqdm(glob.glob(path + '/*.xml')):
         tree = AnnotationsParser().read(xml_file)
         for obj in tree:
-            filename = xml_file.split(r'/')[-1][:-3] + 'bmp'
+            filename = xml_file.split(r'/')[-1].split('\\')[-1][:-len(img_format)] + img_format
             width = obj['width']
             height = obj['height']
             classe = obj['name']
@@ -46,28 +48,33 @@ def xml_to_csv(path):
     return xml_df
 
 
-def main():
-    # Initiate argument parser
-    parser = argparse.ArgumentParser(
-        description="Sample TensorFlow XML-to-CSV converter")
-    parser.add_argument("-i",
-                        "--inputDir",
-                        help="Path to the folder where the input .xml files are stored",
-                        type=str)
-    parser.add_argument("-o",
-                        "--outputFile",
-                        help="Name of output .csv file (including path)", type=str)
-    args = parser.parse_args()
+def main(input_dir=None, output_file=None):
+    print(f'XML2CSV HAS STARTED. PROCESSING {input_dir}')
+    if input_dir == None:
+        # Initiate argument parser
+        parser = argparse.ArgumentParser(
+            description="Sample TensorFlow XML-to-CSV converter")
+        parser.add_argument("-i",
+                            "--inputDir",
+                            help="Path to the folder where the input .xml files are stored",
+                            type=str)
+        parser.add_argument("-o",
+                            "--outputFile",
+                            help="Name of output .csv file (including path)", type=str)
+        args = parser.parse_args()
 
-    if (args.inputDir is None):
-        args.inputDir = os.getcwd()
-    if (args.outputFile is None):
-        args.outputFile = args.inputDir + "/labels.csv"
+        input_dir = args.inputDir
+        output_file = args.outputFile
 
-    assert (os.path.isdir(args.inputDir))
+        if (input_dir is None):
+            input_dir = os.getcwd()
+        if (output_file is None):
+            output_file = input_dir + "/labels.csv"
 
-    xml_df = xml_to_csv(args.inputDir)
-    xml_df.to_csv(args.outputFile, index=None)
+    assert (os.path.isdir(input_dir))
+
+    xml_df = xml_to_csv(input_dir)
+    xml_df.to_csv(output_file, index=None)
     print('Successfully converted xml to csv.')
 
 
