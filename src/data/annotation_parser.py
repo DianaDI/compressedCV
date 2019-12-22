@@ -21,8 +21,8 @@ class AnnotationsParser:
             annotations = dict()
             annotations['name'] = i.getElementsByTagName('name')[0].firstChild.data
             annotations['xmin'] = i.getElementsByTagName('bndbox')[0].childNodes[1].firstChild.data
-            annotations['xmax'] = i.getElementsByTagName('bndbox')[0].childNodes[3].firstChild.data
-            annotations['ymin'] = i.getElementsByTagName('bndbox')[0].childNodes[5].firstChild.data
+            annotations['ymin'] = i.getElementsByTagName('bndbox')[0].childNodes[3].firstChild.data
+            annotations['xmax'] = i.getElementsByTagName('bndbox')[0].childNodes[5].firstChild.data
             annotations['ymax'] = i.getElementsByTagName('bndbox')[0].childNodes[7].firstChild.data
 
             annotations['height'] = height[0].firstChild.data

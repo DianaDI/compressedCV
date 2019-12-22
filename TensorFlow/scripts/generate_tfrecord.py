@@ -82,10 +82,10 @@ def create_tf_example(group, path):
             'image/source_id': dataset_util.bytes_feature(filename),
             'image/encoded': dataset_util.bytes_feature(encoded_jpg),
             'image/format': dataset_util.bytes_feature(image_format),
-            'image/object/bbox/xmin': dataset_util.float_list_feature(xmins),
-            'image/object/bbox/xmax': dataset_util.float_list_feature(xmaxs),
             'image/object/bbox/ymin': dataset_util.float_list_feature(ymins),
+            'image/object/bbox/xmin': dataset_util.float_list_feature(xmins),
             'image/object/bbox/ymax': dataset_util.float_list_feature(ymaxs),
+            'image/object/bbox/xmax': dataset_util.float_list_feature(xmaxs),
             'image/object/class/text': dataset_util.bytes_list_feature(classes_text),
             'image/object/class/label': dataset_util.int64_list_feature(classes),
         }))
