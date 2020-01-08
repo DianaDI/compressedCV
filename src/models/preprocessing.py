@@ -24,10 +24,10 @@ if XML2CSV:
 # Compress test and train data
 if COMPRESS:
     compressor = Compression(COMPRESSION_LVL)
-    compressor.compress_bulk(TEST_DATA, COMP_TEST_DATA_PATH)
     compressor.compress_bulk(TRAIN_DATA, COMP_TRAIN_DATA_PATH)
+    compressor.compress_bulk(TEST_DATA, COMP_TEST_DATA_PATH)
 
 # Generate tensorflow records
 if TFRECORDS:
-    generate_tfrecord.main(OUT_TRAIN_CSV, TRAIN_DATA, OUT_RECORDS_TRAIN_PATH)
-    generate_tfrecord.main(OUT_TEST_CSV, TEST_DATA, OUT_RECORDS_TEST_PATH)
+    generate_tfrecord.main(OUT_TRAIN_CSV, COMP_TRAIN_DATA_PATH, OUT_RECORDS_TRAIN_PATH)
+    generate_tfrecord.main(OUT_TEST_CSV, COMP_TEST_DATA_PATH, OUT_RECORDS_TEST_PATH)
