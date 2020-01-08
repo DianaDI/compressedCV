@@ -18,7 +18,7 @@ OUT_TRAIN_CSV = f'/home/ubuntu/data/data_original/csv/train_labels.csv'
 OUT_TEST_CSV = f'/home/ubuntu/data/data_original/csv/test_labels.csv'
 
 # Compression
-COMPRESSION_LVL = 0
+COMPRESSION_LVL = 40
 
 COMP_TRAIN_DATA_PATH = f'/home/ubuntu/data/images_' + str(COMPRESSION_LVL) + f'/train'
 COMP_TEST_DATA_PATH = f'/home/ubuntu/data/images_' + str(COMPRESSION_LVL) + f'/test'
