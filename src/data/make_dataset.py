@@ -4,7 +4,7 @@ from sklearn.model_selection import train_test_split
 
 
 class TrainValTestSplitter:
-    def __init__(self, path_to_data, path_to_labels, test_size=0.2, val=False):
+    def __init__(self, path_to_data, path_to_labels, test_size=0.1, val=False):
         """
         Train-validation-test splitter, stores all the filenames
         :param path_to_data: path to images

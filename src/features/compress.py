@@ -29,7 +29,8 @@ class Compression:
         if self.resize:
             # downsize the image with an ANTIALIAS filter (gives the highest quality)
             img = img.resize(self.resize_params, Image.ANTIALIAS)
-        img.save(save_path, optimize=self.optimize, quality=self.compress_level)
+        img.save(save_path[:-4]+'.jpg', optimize=self.optimize, quality=self.compress_level)
+	img.close()
 
     def compress_bulk(self, data_dir, save_dir):
         try:
