@@ -1,0 +1,105 @@
+name,val,quality,type
+classification_loss,2.352968,100,bmp
+localization_loss,1.250106,100,bmp
+Bicycle,0.002146,100,bmp
+Bike_Bicycle_w/out_human,nan,100,bmp
+Bus,0.255653,100,bmp
+Ignored,nan,100,bmp
+Motorbike,0,100,bmp
+PassengerCar,0.537846,100,bmp
+Pedestrian,0.060617,100,bmp
+Truck,0.412823,100,bmp
+Van,0.292274,100,bmp
+mAP at 0.5IOU,0.482949,100,bmp
+Test+Train Data Size GB,274,100,bmp
+classification_loss,2.316056,100,jpg
+localization_loss,1.224393,100,jpg
+Bicycle,0.004847,100,jpg
+Bike_Bicycle_w/out_human,nan,100,jpg
+Bus,0.241101,100,jpg
+Ignored,nan,100,jpg
+Motorbike,0,100,jpg
+PassengerCar,0.546109,100,jpg
+Pedestrian,0.06536,100,jpg
+Truck,0.423793,100,jpg
+Van,0.293567,100,jpg
+mAP at 0.5IOU,0.491519,100,jpg
+Test+Train Data Size GB,51,100,jpg
+classification_loss,2.361523,40,jpg
+localization_loss,1.245563,40,jpg
+Bicycle,0.00321,40,jpg
+Bike_Bicycle_w/out_human,nan,40,jpg
+Bus,0.229718,40,jpg
+Ignored,nan,40,jpg
+Motorbike,0,40,jpg
+PassengerCar,0.543328,40,jpg
+Pedestrian,0.065265,40,jpg
+Truck,0.41396,40,jpg
+Van,0.286167,40,jpg
+mAP at 0.5IOU,0.488371,40,jpg
+Test+Train Data Size GB,4,40,jpg
+classification_loss,2.372779,30,jpg
+localization_loss,1.269795,30,jpg
+Bicycle,0.002784,30,jpg
+Bike_Bicycle_w/out_human,nan,30,jpg
+Bus,0.241317,30,jpg
+Ignored,nan,30,jpg
+Motorbike,0,30,jpg
+PassengerCar,0.537884,30,jpg
+Pedestrian,0.066963,30,jpg
+Truck,0.41293,30,jpg
+Van,0.295425,30,jpg
+mAP at 0.5IOU,0.482633,30,jpg
+Test+Train Data Size GB,3.5,30,jpg
+classification_loss,2.411104,20,jpg
+localization_loss,1.284621,20,jpg
+Bicycle,0.004206,20,jpg
+Bike_Bicycle_w/out_human,nan,20,jpg
+Bus,0.250024,20,jpg
+Ignored,nan,20,jpg
+Motorbike,0,20,jpg
+PassengerCar,0.530506,20,jpg
+Pedestrian,0.066997,20,jpg
+Truck,0.402706,20,jpg
+Van,0.279404,20,jpg
+mAP at 0.5IOU,0.477106,20,jpg
+Test+Train Data Size GB,2.9,20,jpg
+classification_loss,2.510747,10,jpg
+localization_loss,1.332975,10,jpg
+Bicycle,0.001299,10,jpg
+Bike_Bicycle_w/out_human,nan,10,jpg
+Bus,0.223775,10,jpg
+Ignored,nan,10,jpg
+Motorbike,0,10,jpg
+PassengerCar,0.522283,10,jpg
+Pedestrian,0.061378,10,jpg
+Truck,0.397359,10,jpg
+Van,0.267646,10,jpg
+mAP at 0.5IOU,0.468544,10,jpg
+Test+Train Data Size GB,2.3,10,jpg
+classification_loss,2.697109,5,jpg
+localization_loss,1.459186,5,jpg
+Bicycle,0.000737,5,jpg
+Bike_Bicycle_w/out_human,nan,5,jpg
+Bus,0.190448,5,jpg
+Ignored,nan,5,jpg
+Motorbike,0,5,jpg
+PassengerCar,0.496302,5,jpg
+Pedestrian,0.042236,5,jpg
+Truck,0.353111,5,jpg
+Van,0.234645,5,jpg
+mAP at 0.5IOU,0.441664,5,jpg
+Test+Train Data Size GB,1.9,5,jpg
+classification_loss,3.02976,1,jpg
+localization_loss,1.678186,1,jpg
+Bicycle,0.000195,1,jpg
+Bike_Bicycle_w/out_human,nan,1,jpg
+Bus,0.181443,1,jpg
+Ignored,nan,1,jpg
+Motorbike,0,1,jpg
+PassengerCar,0.449259,1,jpg
+Pedestrian,0.037644,1,jpg
+Truck,0.306344,1,jpg
+Van,0.19487,1,jpg
+mAP at 0.5IOU,0.398075,1,jpg
+Test+Train Data Size GB,1.8,1,jpg
