@@ -1,3 +1,9 @@
+# Explanation:
+### training: SSD MODEL
+### ktraining: RESNET 101 FRCNN KITTI Model
+### ftraining: Faster RCNN Model
+
+
 # Steps to run FRCNN and KITTI FRCNN
 
 This folder is what you need to train and test the scripts
