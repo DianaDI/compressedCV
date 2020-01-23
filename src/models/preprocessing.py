@@ -14,10 +14,10 @@ from src import DATA_FILTERED, \
 # Configure parameters
 SPLIT = False
 XML2CSV = False
-MAKEGRAY = True
+MAKEGRAY = False
 COMPRESS = True
 TFRECORDS = True
-ISGRAY = False
+ISGRAY = True
 
 # Split data with 10% default test size
 if SPLIT:
