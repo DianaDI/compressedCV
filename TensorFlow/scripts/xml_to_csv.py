@@ -28,7 +28,7 @@ def xml_to_csv(path):
         The produced dataframe
     """
 
-    img_format = "bmp"
+    img_format = "jpg"
     xml_list = []
     for xml_file in tqdm(glob.glob(path + '/*.xml')):
         tree = AnnotationsParser().read(xml_file)

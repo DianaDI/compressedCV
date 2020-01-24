@@ -15,9 +15,13 @@ TEST_DATA = f'/home/ubuntu/data/data_original/test'
 TRAIN_DATA_G = f'/home/ubuntu/data/data_original/train_g'
 TEST_DATA_G = f'/home/ubuntu/data/data_original/test_g'
 
-# CSV PATH
+# CSV PATH BMP
 OUT_TRAIN_CSV = f'/home/ubuntu/data/data_original/csv/train_labels.csv'
 OUT_TEST_CSV = f'/home/ubuntu/data/data_original/csv/test_labels.csv'
+
+# CSV PATH JPG
+OUT_TRAIN_CSV_JPG = f'/home/ubuntu/data/data_original/csv/train_labels_jpg.csv'
+OUT_TEST_CSV_JPG = f'/home/ubuntu/data/data_original/csv/test_labels_jpg.csv'
 
 # Compression
 COMPRESSION_LVL = 40
