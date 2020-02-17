@@ -42,6 +42,3 @@ def separate_train_test(data, train_data, test_data, path_to_labels, copy=True):
         print("TEST DATA IS BEING PROCESSED...")
         move_files(data_test['path'], test_data)
         move_files(data_test['labels'], test_data)
-
-# if __name__ == '__main__':
-#     separate_train_test(DATA_PATH)
