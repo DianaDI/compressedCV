@@ -40,6 +40,8 @@ Project Organization
             └── build_features.py
 
 
+Use instructions in readme files in TensorFlow folder to train pre-trained models. 
+
 --------
 
 <p><small>Project based on the <a target="_blank" href="https://drivendata.github.io/cookiecutter-data-science/">cookiecutter data science project template</a>. #cookiecutterdatascience</small></p>
