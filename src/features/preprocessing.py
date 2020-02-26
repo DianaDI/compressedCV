@@ -16,9 +16,9 @@ from src import DATA_FILTERED, \
 SPLIT = False
 XML2CSV = False
 MAKEGRAY = False
-COMPRESS = False
+COMPRESS = True
 TFRECORDS = True
-ISGRAY = True
+ISGRAY = False
 ISJPG = True
 
 # Split data with 10% default test size
