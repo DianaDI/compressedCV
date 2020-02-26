@@ -35,7 +35,8 @@ class Compression:
     def compress_bulk(self, data_dir, save_dir):
         try:
             os.makedirs(save_dir)
-        except OSError:
+        except OSError as e:
+            print(e)
             pass
 
         if self.log:
